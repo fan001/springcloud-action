@@ -1,0 +1,59 @@
+spring:
+  application:
+    name: zuul-gateway
+server:
+  port: 8080
+eureka:
+  client:
+    service-url:
+      defaultZone: http://192.168.1.102:7070/eureka/
+zuul:
+  routes:
+    baidu:
+      path: /bd/**
+      url: https://www.baidu.com
+    provider:
+      path: /p/**
+      serviceid: provider
+    auth:
+      path: /auth/**
+      serviceId: oauth-server
+
+  prefix: /api
+
+ribbon:
+  eureka:
+    enabled: true
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 1
+  OkToRetryOnAllOperations: false
+
+hystrix:
+  threadpool:
+    default:
+      coreSize: 1000 ##并发执行的最大线程数，默认10
+      maxQueueSize: 1000 ##BlockingQueue的最大队列数
+      queueSizeRejectionThreshold: 500 ##即使maxQueueSize没有达到，达到queueSizeRejectionThreshold该值后，请求也会被拒绝
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+
+
+gate:
+  ignore:
+    startWith: /static,/auth/jwt
+
+auth:
+  serviceId: oauth-server
+  user:
+    token-header: Authorization
+  client:
+    token-header: x-client-token
+    id: ace-gate  #不填则默认读取spring.application.name
+    secret: 123456
+
