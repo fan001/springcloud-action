@@ -1,0 +1,25 @@
+*/target
+*/out
+*.iml
+/.idea
+*.class
+target/
+.project
+.settings/
+.classpath
+!gradle-wrapper.jar
+.gradletasknamecache
+gradle/wrapper/gradle-wrapper.properties
+*/build
+/build/
+/out/
+.gradle
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+*.bat
