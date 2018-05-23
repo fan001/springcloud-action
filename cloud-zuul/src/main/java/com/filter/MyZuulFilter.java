@@ -120,6 +120,9 @@ public class MyZuulFilter extends ZuulFilter {
      */
     private boolean isStartWith(String requestUri) {
         boolean flag = false;
+        if(requestUri.indexOf("/v2/api-docs") != -1){
+            return true;
+        }
         for (String s : startWith.split(",")) {
             if (requestUri.startsWith(s)) {
                 return true;

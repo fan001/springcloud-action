@@ -1,30 +1,3 @@
-buildscript {
-    ext {
-        springBootVersion = '2.0.0.RELEASE'
-    }
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-    }
-}
-
-
-
-apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
-
-
-ext{
-    springCloudVersion = 'Finchley.M9'
-}
-
-
-repositories {
-    mavenCentral()
-    maven{url "https://repo.spring.io/milestone"}
-}
 
 dependencies {
     compile project(":cloud-common")
@@ -36,12 +9,5 @@ dependencies{
     compile("org.springframework.cloud:spring-cloud-starter-openfeign")
     compile group: 'org.projectlombok', name: 'lombok', version: '1.16.14'
 
-}
-
-
-dependencyManagement{
-    imports {
-        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
-    }
 }
 

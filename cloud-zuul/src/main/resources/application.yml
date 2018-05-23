@@ -6,19 +6,10 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://192.168.1.102:7070/eureka/
+      defaultZone: http://192.168.1.112:7070/eureka/
+  instance:
+    health-check-url-path:  /actuator/health
 zuul:
-  routes:
-    baidu:
-      path: /bd/**
-      url: https://www.baidu.com
-    provider:
-      path: /p/**
-      serviceid: provider
-    auth:
-      path: /auth/**
-      serviceId: oauth-server
-
   prefix: /api
 
 ribbon:
@@ -43,10 +34,9 @@ hystrix:
           thread:
             timeoutInMilliseconds: 10000
 
-
 gate:
   ignore:
-    startWith: /static,/auth/jwt
+    startWith: /static,/auth/jwt,/provider/v2/api-docs,/provider/mytest
 
 auth:
   serviceId: oauth-server
@@ -57,3 +47,12 @@ auth:
     id: ace-gate  #不填则默认读取spring.application.name
     secret: 123456
 
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
