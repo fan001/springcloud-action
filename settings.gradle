@@ -17,4 +17,4 @@ include 'services:webservice'
 
 rootProject.name = 'springcloud-multi'
 include 'cloud-zuul','cloud-provider','oauth2-server','cloud-common'
-include 'cloud-admin','auth-interceptor','eureka-center'
+include 'cloud-admin','auth-interceptor','eureka-center','monitor-server'
