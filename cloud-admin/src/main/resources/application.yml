@@ -17,6 +17,11 @@ spring:
     default-property-inclusion: non_null
   application:
     name: cloud-admin
+  zipkin:
+    base-url: http://192.168.1.103:7075
+  sleuth:
+    sampler:
+      probability: 1.0
 
 eureka:
   client:

@@ -22,3 +22,4 @@ gradle/wrapper/gradle-wrapper.properties
 *.tar.gz
 *.rar
 *.bat
+.gradle

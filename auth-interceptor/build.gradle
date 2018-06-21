@@ -2,6 +2,9 @@
 dependencies {
     compile project(":cloud-common")
 }
+jar {
+    enabled = true
+}
 
 dependencies{
     compile('org.springframework.boot:spring-boot-starter-web')

@@ -1,0 +1,23 @@
+
+
+eureka:
+  instance:
+    status-page-url-path: /actuator/info
+    health-check-url-path: /actuator/health
+  client:
+    service-url:
+      defaultZone: http://192.168.1.112:7070/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
+server:
+  port: 7075
+spring:
+  application:
+    name: cloud-trace

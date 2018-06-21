@@ -1,6 +1,11 @@
 spring:
   application:
     name: zuul-gateway
+  zipkin:
+    base-url: http://192.168.1.103:7075
+  sleuth:
+    sampler:
+      probability: 1.0
 server:
   port: 8080
 eureka:
@@ -11,6 +16,20 @@ eureka:
     health-check-url-path:  /actuator/health
 zuul:
   prefix: /api
+  routes:
+    auth:
+      path: /auth/**
+      serviceId: oauth-server
+    monitor:
+      path: /monitor/**
+      url: http://192.168.1.103:7072
+    trace:
+      path: /trace/**
+      url: http://192.168.1.103:7075
+
+
+
+
 
 ribbon:
   eureka:
@@ -36,7 +55,7 @@ hystrix:
 
 gate:
   ignore:
-    startWith: /static,/auth/jwt,/provider/v2/api-docs,/provider/mytest
+    startWith: /static,/auth/jwt,/provider/v2/api-docs,/provider/mytest,/monitor,/trace
 
 auth:
   serviceId: oauth-server
@@ -46,6 +65,7 @@ auth:
     token-header: x-client-token
     id: ace-gate  #不填则默认读取spring.application.name
     secret: 123456
+
 
 
 management:
