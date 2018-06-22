@@ -1,10 +1,9 @@
 package com.trace;
 
-import org.aspectj.weaver.tools.Trace;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import zipkin.server.EnableZipkinServer;
+import zipkin.server.internal.EnableZipkinServer;
 
 /**
  * @author fanzhenxing
