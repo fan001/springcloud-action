@@ -2,7 +2,7 @@ spring:
   application:
     name: zuul-gateway
   zipkin:
-    base-url: http://192.168.1.103:7075
+    base-url: http://192.168.1.198:7075
   sleuth:
     sampler:
       probability: 1.0
@@ -11,7 +11,7 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://192.168.1.112:7070/eureka/
+      defaultZone: http://192.168.1.198:7070/eureka/
   instance:
     health-check-url-path:  /actuator/health
 zuul:
@@ -22,10 +22,10 @@ zuul:
       serviceId: oauth-server
     monitor:
       path: /monitor/**
-      url: http://192.168.1.103:7072
+      url: http://192.168.1.198:7072
     trace:
       path: /trace/**
-      url: http://192.168.1.103:7075
+      url: http://192.168.1.198:7075
 
 
 

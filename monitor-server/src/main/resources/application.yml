@@ -8,7 +8,7 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: ${EUREKA_SERVICE_URL:http://192.168.1.112:7070}/eureka/
+      defaultZone: ${EUREKA_SERVICE_URL:http://192.168.1.198:7070}/eureka/
     registry-fetch-interval-seconds: 5
   instance:
     lease-renewal-interval-in-seconds: 10
